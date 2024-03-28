@@ -74,6 +74,14 @@ public class House extends Building {
     }
   }
 
+  // Causes an exception error...?
+  public void moveOut() {
+    for (String name : residents) {
+      residents.remove(name);
+      System.out.println("All residents moved out!"); 
+    }
+  } 
+
   /** Checks if a name is in the list of residents. 
   // @param String name is the name of the resident being removed.
   // @return boolean is whether or not the person is a resident.
@@ -117,6 +125,9 @@ public class House extends Building {
     Lamont.goDown();
     Lamont.goToFloor(1);
     Lamont.exit();
+    // Exception error ):
+    Lamont.moveOut();
+    System.out.println("Lamont has: " + Lamont.nResidents() + " resident(s).");
   }
 
 }

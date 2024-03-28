@@ -71,6 +71,31 @@ public class Cafe extends Building {
         }
     }
 
+    public void sellCoffee(int size, int nSugarPackets) {
+      if (size <= nCoffeeOunces && nSugarPackets <= this.nSugarPackets && nCreams <= this.nCreams) {
+        System.out.println("Selling coffee with standard number of splashes of cream...");
+        this.nCoffeeOunces -= size;
+        this.nSugarPackets -= nSugarPackets;
+        this.nCreams -= 4;
+      }
+      else {
+        System.out.println("Not enough in stock... \nRestocking...");
+        restock(20,50,25,15);
+    }
+    }
+
+    public void sellCoffee(int size) {
+      if (size <= nCoffeeOunces && nSugarPackets <= this.nSugarPackets && nCreams <= this.nCreams) {
+      System.out.println("Selling coffee with standard number of sugar packets and splashes of cream...");
+      this.nCoffeeOunces -= size;
+      this.nSugarPackets -= 2;
+      this.nCreams -= 4;
+      } else {
+        System.out.println("Not enough in stock... \nRestocking...");
+        restock(20,50,25,15);
+    }
+    }
+
     public void showOptions() {
       super.showOptions();
       System.out.println(" + restock(n)\n + sellCoffee(n)");
@@ -98,13 +123,17 @@ public class Cafe extends Building {
         System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
         System.out.println("-----------");
         // Sell coffee
-        Woodstar.sellCoffee(10, 5, 13);
+        Woodstar.sellCoffee(6, 3, 4);
         System.out.println("-----------");
         System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
         System.out.println("Wood star has " + Woodstar.nCups + " cups of coffee.");
         System.out.println("-----------");
         // Trying to sell too much coffee -> Restock
-        Woodstar.sellCoffee(10, 5, 13);
+        Woodstar.sellCoffee(2, 1);
+        System.out.println("-----------");
+        System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
+        System.out.println("-----------");
+        Woodstar.sellCoffee(2);
         System.out.println("-----------");
         System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
         System.out.println("-----------");
@@ -113,5 +142,4 @@ public class Cafe extends Building {
         Woodstar.goToFloor(3);
         Woodstar.exit();
     }
-    
 }
