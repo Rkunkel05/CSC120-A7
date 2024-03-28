@@ -121,28 +121,38 @@ public class House extends Building {
     House Lamont = new House("Lamont House", "17 Prospect St.", 5, true, true);
     System.out.println(Lamont);
     Lamont.showOptions();
-    System.out.println("Lamont has a dining room: " + Lamont.hasDiningRoom());
-    System.out.println("Lamont has an elevator: " + Lamont.hasElevator());
-    System.out.println("Moving residents in...");
+
+    // Showing info about house
+    System.out.println("\n" + Lamont.name + " has a dining room: "  + Lamont.hasDiningRoom());
+    System.out.println(Lamont.name + " has an elevator: " + Lamont.hasElevator());
+
+    // Moving residents in
+    System.out.println("\nMoving residents in...");
     Lamont.moveIn("Rachel");
     Lamont.moveIn("Leah");
     Lamont.moveIn();
-    System.out.println("Lamont has: " + Lamont.nResidents() + " resident(s).");
-    System.out.println("Rachel lives in Lamont: " + Lamont.isResident("Rachel"));
-    System.out.println("Moving a resident out...");
+    System.out.println(Lamont.name + " has: " + Lamont.nResidents() + " resident(s).");
+    System.out.println("Rachel lives in " + Lamont.name + ": " + Lamont.isResident("Rachel"));
+
+    // Moving a resident out
+    System.out.println("\nMoving a resident out...");
     Lamont.moveOut("Leah");
-    System.out.println("Lamont has: " + Lamont.nResidents() + " resident(s).");
-    System.out.println("Leah lives in Lamont: " + Lamont.isResident("Leah"));
+    System.out.println(Lamont.name + " has: " + Lamont.nResidents() + " resident(s).");
+    System.out.println("Leah lives in " + Lamont.name + ": " + Lamont.isResident("Leah"));
+   
     // Entering, exiting, elevator...
+    System.out.println("\n");
     Lamont.enter();
     Lamont.goToFloor(2);
     Lamont.goUp();
     Lamont.goDown();
     Lamont.goToFloor(1);
     Lamont.exit();
-    // Exception error ):
+    
+    System.out.println("\n");
     Lamont.moveOut();
-    System.out.println("Lamont has: " + Lamont.nResidents() + " resident(s).");
+    // Exception error ):
+    System.out.println(Lamont.name + " has: " + Lamont.nResidents() + " resident(s).");
   }
 
 }
