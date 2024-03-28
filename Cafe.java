@@ -70,13 +70,20 @@ public class Cafe extends Building {
     }
 
     public void showOptions() {
-      showOptions();
       super.showOptions();
+      System.out.println(" + restock(n)\n + sellCoffee(n)");
+  }
+
+  public void goToFloor(int floorNum) {
+    // check if there is an elevator
+    super.goToFloor(floorNum);
+    // runtime error if there is no elevator; You must take the stairs
   }
     
     public static void main(String[] args) {
         Cafe Woodstar = new Cafe("Woodstar Cafe", "60 Masonic St", 1, 20, 50, 25, 15);
         System.out.println(Woodstar);
+        Woodstar.showOptions();
         // Printing the stock
         System.out.println("-----------");
         System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
@@ -92,8 +99,6 @@ public class Cafe extends Building {
         System.out.println("-----------");
         System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
         System.out.println("-----------");
-
-        // Woodstar.showOptions();
     }
     
 }

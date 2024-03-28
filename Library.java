@@ -91,6 +91,11 @@ public class Library extends Building {
       }
     }
 
+    public void showOptions() {
+      super.showOptions();
+      System.out.println(" + addTitle(s)\n + removeTitle(s)\n + checkOut(s)\n + returnBook(s)\n + containsTitle(s)\n + isAvailable(s).");
+  }
+
     // prints out the entire collection in an easy-to-read way (including checkout status)
     public void printCollection() {
       System.out.println("------------");
@@ -110,9 +115,16 @@ public class Library extends Building {
         System.out.println("------------");
     }
 
+    public void goToFloor(int floorNum) {
+        // check if there is an elevator
+        super.goToFloor(floorNum);
+        // runtime error if there is no elevator; You must take the stairs
+    }
+
     public static void main(String[] args) {
       Library Neilson = new Library("Neilson Library", "7 Neilson Drive", 5);
       System.out.println(Neilson);
+      Neilson.showOptions();
       // Adding books to collection
       Neilson.addTitle("Animal Farm by George Orwell", true);
       Neilson.addTitle("Don Quixote by Miguel de Cervantes", true);

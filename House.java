@@ -82,9 +82,21 @@ public class House extends Building {
     return residents.contains(person);
   }
 
+  public void showOptions() {
+    super.showOptions();
+    System.out.println(" + hasDiningRoom()\n + nResidents()\n + moveIn(s)\n + moveOut(s)\n + isResident(s)");
+}
+
+  public void goToFloor(int floorNum) {
+    // check if there is an elevator
+    super.goToFloor(floorNum);
+    // runtime error if there is no elevator; You must take the stairs
+  }
+
   public static void main(String[] args) {
     House Lamont = new House("Lamont House", "17 Prospect St.", 5, true, true);
     System.out.println(Lamont);
+    Lamont.showOptions();
     System.out.println("Lamont has a dining room: " + Lamont.hasDiningRoom());
     System.out.println("Lamont has an elevator: " + Lamont.hasElevator());
     System.out.println("Moving residents in...");
