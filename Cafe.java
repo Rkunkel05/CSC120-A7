@@ -24,8 +24,9 @@ public class Cafe extends Building {
       @param int nSugarPackets is an int with the number of sugar packets in the cafe
       @param int nCups is an int with the number of cups in the cafe
       @param int nCreams is an int with the number of 'splashes' of coffee in the cafe
+      @param boolean hasElevator indicates whether or not the cafe has an elevator 
     **/
-    public Cafe(String name, String address, int floors, int nCoffeeOunces, int nSugarPackets, int nCups, int nCreams) {
+    public Cafe(String name, String address, int floors, int nCoffeeOunces, int nSugarPackets, int nCups, int nCreams, boolean hasElevator) {
         super(name, address, floors); 
         this.nCoffeeOunces = nCoffeeOunces;
         this.nSugarPackets = nSugarPackets;
@@ -75,13 +76,18 @@ public class Cafe extends Building {
   }
 
   public void goToFloor(int floorNum) {
-    // check if there is an elevator
-    super.goToFloor(floorNum);
-    // runtime error if there is no elevator; You must take the stairs
+    // figure this out erm...
+    boolean hasElevator;
+    hasElevator = super.hasElevator();
+    if (hasElevator = true) {
+      super.goToFloor(floorNum);
+      System.out.println("Now on floor: " + floorNum);
+    } else {
+      throw new RuntimeException(this.name + " does not have an elevator! You must take the stairs."); }
   }
     
     public static void main(String[] args) {
-        Cafe Woodstar = new Cafe("Woodstar Cafe", "60 Masonic St", 1, 20, 50, 25, 15);
+        Cafe Woodstar = new Cafe("Woodstar Cafe", "60 Masonic St", 1, 20, 50, 25, 15, false);
         System.out.println(Woodstar);
         Woodstar.showOptions();
         // Printing the stock
@@ -99,6 +105,7 @@ public class Cafe extends Building {
         System.out.println("-----------");
         System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
         System.out.println("-----------");
+        Woodstar.goToFloor(2);
     }
     
 }

@@ -44,6 +44,10 @@ public class Building {
         return this.nFloors;
     }
 
+    public boolean hasElevator() {
+        return hasElevator();
+    }
+
     /* Navigation methods */
     public Building enter() {
         if (activeFloor != -1) {
