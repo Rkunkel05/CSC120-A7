@@ -24,7 +24,7 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 ### Level 2: Method `Overloads` (3 pts)
 
-_____ 1 pt: The `House` class includes at least 2 overloaded methods
+**PART** 1 pt: The `House` class includes at least 2 overloaded methods
 
 _____ 1 pt: The `Library` class includes at least 2 overloaded methods
 

@@ -116,6 +116,19 @@ public class Library extends Building {
         System.out.println("------------");
     }
 
+    // prints all of the books by a certain author
+    public void printCollection(String author) {
+      System.out.println("------------");
+      System.out.println("Collection of books by " + author + ":");
+      Enumeration<String> e = collection.keys();
+      while (e.hasMoreElements()) {
+        String title = e.nextElement();
+        if (title.contains("by " + author)) {
+            System.out.println(title);
+        } 
+      }
+    }
+
     public boolean hasElevator() {
       return hasElevator;
   }
@@ -137,6 +150,7 @@ public class Library extends Building {
       Neilson.addTitle("Animal Farm by George Orwell", true);
       Neilson.addTitle("Don Quixote by Miguel de Cervantes", true);
       Neilson.addTitle("Dune by Frank Herbert", true);
+      Neilson.addTitle("Dune Messiah by Frank Herbert", true);
       // Print collection
       Neilson.printCollection();
       // Check if books are in collection & their availability 
@@ -163,6 +177,7 @@ public class Library extends Building {
       Neilson.goDown();
       Neilson.goToFloor(1);
       Neilson.exit();
+      Neilson.printCollection("Frank Herbert");
     }
 
   }
