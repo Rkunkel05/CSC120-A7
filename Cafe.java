@@ -14,6 +14,7 @@ public class Cafe extends Building {
     private int nSugarPackets;
     private int nCreams;
     private int nCups;
+    public boolean hasElevator;
 
     /**
       "Builds" cafe
@@ -75,10 +76,12 @@ public class Cafe extends Building {
       System.out.println(" + restock(n)\n + sellCoffee(n)");
   }
 
+  public boolean hasElevator() {
+    return hasElevator;
+}
+
   public void goToFloor(int floorNum) {
-    // figure this out erm...
-    boolean hasElevator;
-    hasElevator = super.hasElevator();
+    hasElevator = hasElevator();
     if (hasElevator = true) {
       super.goToFloor(floorNum);
       System.out.println("Now on floor: " + floorNum);
@@ -105,7 +108,10 @@ public class Cafe extends Building {
         System.out.println("-----------");
         System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
         System.out.println("-----------");
-        Woodstar.goToFloor(2);
+        // Entering, exiting, elevator...
+        Woodstar.enter();
+        Woodstar.goToFloor(3);
+        Woodstar.exit();
     }
     
 }

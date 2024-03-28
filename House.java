@@ -88,11 +88,13 @@ public class House extends Building {
 }
 
   public void goToFloor(int floorNum) {
-    // check if there is an elevator
-    super.goToFloor(floorNum);
-    // runtime error if there is no elevator; You must take the stairs
+    hasElevator = hasElevator();
+    if (hasElevator = true) {
+      super.goToFloor(floorNum);
+      System.out.println("Now on floor: " + floorNum);
+    } else {
+      throw new RuntimeException(this.name + " does not have an elevator! You must take the stairs."); }
   }
-
   public static void main(String[] args) {
     House Lamont = new House("Lamont House", "17 Prospect St.", 5, true, true);
     System.out.println(Lamont);
@@ -108,6 +110,13 @@ public class House extends Building {
     Lamont.moveOut("Leah");
     System.out.println("Lamont has: " + Lamont.nResidents() + " resident(s).");
     System.out.println("Leah lives in Lamont: " + Lamont.isResident("Leah"));
+    // Entering, exiting, elevator...
+    Lamont.enter();
+    Lamont.goToFloor(2);
+    Lamont.goUp();
+    Lamont.goDown();
+    Lamont.goToFloor(1);
+    Lamont.exit();
   }
 
 }

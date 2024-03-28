@@ -14,13 +14,14 @@ public class Library extends Building {
   private Hashtable<String, Boolean> collection;
   String title;
   Boolean status;
+  boolean hasElevator;
 
     /** Creates library building
      @param String name is a String of the name of the library
      @param String address is String of the address of the library
      @param int floor is the number of floors in the building
   */
-    public Library(String name, String address, int floors) {
+    public Library(String name, String address, int floors, boolean hasElevator) {
       super(name, address, floors); 
       System.out.println("You have built a library: 📖");
       this.collection = new Hashtable<>();
@@ -115,14 +116,21 @@ public class Library extends Building {
         System.out.println("------------");
     }
 
+    public boolean hasElevator() {
+      return hasElevator;
+  }
+
     public void goToFloor(int floorNum) {
-        // check if there is an elevator
+      hasElevator = hasElevator();
+      if (hasElevator = true) {
         super.goToFloor(floorNum);
-        // runtime error if there is no elevator; You must take the stairs
+        System.out.println("Now on floor: " + floorNum);
+      } else {
+        throw new RuntimeException(this.name + " does not have an elevator! You must take the stairs."); }
     }
 
     public static void main(String[] args) {
-      Library Neilson = new Library("Neilson Library", "7 Neilson Drive", 5);
+      Library Neilson = new Library("Neilson Library", "7 Neilson Drive", 5, true);
       System.out.println(Neilson);
       Neilson.showOptions();
       // Adding books to collection
@@ -148,6 +156,13 @@ public class Library extends Building {
       Neilson.removeTitle("Dune by Frank Herbert");
       System.out.println("Removing book...");
       Neilson.printCollection();
+      // Entering, exiting, elevator...
+      Neilson.enter();
+      Neilson.goToFloor(3);
+      Neilson.goUp();
+      Neilson.goDown();
+      Neilson.goToFloor(1);
+      Neilson.exit();
     }
 
   }

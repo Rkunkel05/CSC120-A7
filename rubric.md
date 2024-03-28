@@ -16,11 +16,11 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 **YES** 1 pt: The `House`, `Library`, and `Cafe` classes all override the `showOptions()` method to include their additional interactive methods
 
-**PARt** 1 pt: The `Library` class has a `goToFloor(...)` method that allows movement between non-adjacent floors
+**YES** 1 pt: The `Library` class has a `goToFloor(...)` method that allows movement between non-adjacent floors
 
-**PART** 1 pt: The `House` class has a `goToFloor(...)` method that allows movement between non-adjacent floors only if an elevator is present
+**YES** 1 pt: The `House` class has a `goToFloor(...)` method that allows movement between non-adjacent floors only if an elevator is present
 
-**PART** 1 pt: The `Cafe` class has a `goToFloor(...)` method that doesn't permit movement off the first floor (we assume that any additional floors are for storage / accessible only to employees)
+**YES** 1 pt: The `Cafe` class has a `goToFloor(...)` method that doesn't permit movement off the first floor (we assume that any additional floors are for storage / accessible only to employees)
 
 ### Level 2: Method `Overloads` (3 pts)
 
