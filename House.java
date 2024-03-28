@@ -62,6 +62,17 @@ public class House extends Building {
     }
   }
 
+  /** If no name is specified, moves the house council staff into the house. Throws error if they already live there. 
+   */
+  public void moveIn() {
+    if (!residents.contains("House Ghost 👻")) {
+      residents.add("House Ghost 👻");
+    }
+    else {
+      throw new RuntimeException("A House Ghost 👻 is already haunting here!");
+    }
+  }
+
   /** Moves a resident out of the house. Throws an error if they don't live there.
   // @param String name is the name of the resident being removed.
   */
@@ -78,7 +89,10 @@ public class House extends Building {
   public void moveOut() {
     for (String name : residents) {
       residents.remove(name);
-      System.out.println("All residents moved out!"); 
+      if (residents.contains("House Ghost 👻")) {
+        residents.remove("House Ghost 👻");
+      }
+      System.out.println("All residents (including ghosts!) moved out!"); 
     }
   } 
 
@@ -112,6 +126,7 @@ public class House extends Building {
     System.out.println("Moving residents in...");
     Lamont.moveIn("Rachel");
     Lamont.moveIn("Leah");
+    Lamont.moveIn();
     System.out.println("Lamont has: " + Lamont.nResidents() + " resident(s).");
     System.out.println("Rachel lives in Lamont: " + Lamont.isResident("Rachel"));
     System.out.println("Moving a resident out...");
