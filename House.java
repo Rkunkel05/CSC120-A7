@@ -84,16 +84,12 @@ public class House extends Building {
       throw new RuntimeException(name + " doesn't live in this house.");
     }
   }
-
-  // Causes an exception error...?
+  /**
+   * If no specific names are given, moves out ALL residents (including ghosts!)
+   */
   public void moveOut() {
-    for (String name : residents) {
-      residents.remove(name);
-      if (residents.contains("House Ghost 👻")) {
-        residents.remove("House Ghost 👻");
-      }
+    residents.clear();
       System.out.println("All residents (including ghosts!) moved out!"); 
-    }
   } 
 
   /** Checks if a name is in the list of residents. 
@@ -151,7 +147,6 @@ public class House extends Building {
     
     System.out.println("\n");
     Lamont.moveOut();
-    // Exception error ):
     System.out.println(Lamont.name + " has: " + Lamont.nResidents() + " resident(s).");
   }
 
