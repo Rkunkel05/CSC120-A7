@@ -39,6 +39,7 @@ public class Library extends Building {
      @param String name is the title of the book
   */
     public String removeTitle(String title) { 
+      System.out.println("Removing title from collection...");
       if (collection.containsKey(title)) {
           collection.remove(title);
           return title;
@@ -46,10 +47,22 @@ public class Library extends Building {
         throw new RuntimeException(title + "does not exist!");
       } }
 
+      public void removeTitle(String title, String title2) {
+        System.out.println("Removing titles from collection...");
+        if (collection.containsKey(title)) {
+          collection.remove(title);
+        } else if(collection.containsKey(title2)) {
+          collection.remove(title2);
+        } else {
+          throw new RuntimeException("One or more of these books is not in the collection!");
+        }
+      }
+
     /** Checks to see if the title is in the library. Updates to false or otherwise throws error.
      @param String name is the title of the book
   */
     public void checkOut(String title) {
+      System.out.println("Checking out book...");
       if (collection.containsKey(title) && collection.get(title)) {
         collection.put(title, false);
       } else {
@@ -61,6 +74,7 @@ public class Library extends Building {
      @param String name is the title of the book
   */
     public void returnBook(String title) {
+      System.out.println("Returning book...");
       if (collection.containsKey(title) && !collection.get(title)) {
         collection.put(title, true);
       } else {
@@ -92,12 +106,17 @@ public class Library extends Building {
       }
     }
 
+    /**
+     * Shows all available actions for the given building 
+     */
     public void showOptions() {
       super.showOptions();
       System.out.println(" + addTitle(s)\n + removeTitle(s)\n + checkOut(s)\n + returnBook(s)\n + containsTitle(s)\n + isAvailable(s).");
   }
 
-    // prints out the entire collection in an easy-to-read way (including checkout status)
+  /**
+   * Prints out the entire collection in an easy-to-read way (including check-out status)
+   */
     public void printCollection() {
       System.out.println("------------");
       System.out.println("Neilson Library's Collection:");
@@ -116,23 +135,34 @@ public class Library extends Building {
         System.out.println("------------");
     }
 
-    // prints all of the books by a certain author
+    /**
+     * Prints out all books by a specified author
+     * @param author specifies the books that are shown
+     */
     public void printCollection(String author) {
       System.out.println("------------");
-      System.out.println("Collection of books by " + author + ":");
+      System.out.println("Collection of Books by " + author + ":");
       Enumeration<String> e = collection.keys();
       while (e.hasMoreElements()) {
         String title = e.nextElement();
-        if (title.contains("by " + author)) {
+        if (title.contains(author)) {
             System.out.println(title);
         } 
       }
     }
 
+    /**
+     * Gets boolean status of whether or not the building has an elevator 
+     * @return whether or not the building has an elevator
+     */
     public boolean hasElevator() {
       return hasElevator;
   }
 
+  /** 
+   * "Teleports" the user to the specified floor 
+   * @param floorNum specifies the floor number the user is going to 
+   */
     public void goToFloor(int floorNum) {
       hasElevator = hasElevator();
       if (hasElevator = true) {
@@ -151,24 +181,27 @@ public class Library extends Building {
       Neilson.addTitle("Don Quixote by Miguel de Cervantes", true);
       Neilson.addTitle("Dune by Frank Herbert", true);
       Neilson.addTitle("Dune Messiah by Frank Herbert", true);
+      Neilson.addTitle("La Galatea by Miguel de Cervantes", true);
       // Print collection
       Neilson.printCollection();
       // Check if books are in collection & their availability 
       System.out.println("Animal Farm is in the collection: " + Neilson.containsTitle("Animal Farm by George Orwell"));
       System.out.println("Don Quixote is available to check out: " + Neilson.isAvailable("Don Quixote by Miguel de Cervantes"));
       // Checking out a book
-      System.out.println("Checking out book...");
       Neilson.checkOut("Don Quixote by Miguel de Cervantes");
       System.out.println("Don Quixote is available to check out: " + Neilson.isAvailable("Don Quixote by Miguel de Cervantes"));
       Neilson.printCollection();
       // Returning a book
-      System.out.println("Returning book...");
       Neilson.returnBook("Don Quixote by Miguel de Cervantes");
       // Print collection
       Neilson.printCollection();
+      // Print books by a certain author
+      Neilson.printCollection("Frank Herbert");
       // Removing a book from the collection
       Neilson.removeTitle("Dune by Frank Herbert");
-      System.out.println("Removing book...");
+      Neilson.printCollection();
+      // Removing an author from the collection
+      Neilson.removeTitle("Animal Farm", "La Galatea");
       Neilson.printCollection();
       // Entering, exiting, elevator...
       Neilson.enter();
@@ -177,7 +210,6 @@ public class Library extends Building {
       Neilson.goDown();
       Neilson.goToFloor(1);
       Neilson.exit();
-      Neilson.printCollection("Frank Herbert");
     }
 
   }

@@ -6,6 +6,10 @@ Use this file to record your reflection on this assignment.
 * moveOut in the house method: Again like the sellCoffee method I was thinking in real-life situations. In the case of Summer break, most, if not all people, move out of their house, so it would make sense to remove all residents in bulk instead of specifying them one by one. 
 * moveIn in the house method: I was unsure what else I could overload in this, and thought that if no one is specified, the house could have a ghost move in! 👻
 
+* printCollection in the library method: Especially in a larger library you might not want to see all of the books its collection has and instead specify it to only books by a certain author. 
+* trying to make a larger removeTitle method </3
+
+
 - What worked, what didn't, what advice would you give someone taking this course in the future?
 * Same as usual, breaking things down, writing out ideas first, reading through the whole README before coding 
 * I found the idea of overriding and overloading to be a little confusing to understand and also to implement at first, so I found it useful to first search for more information to get a better understanding before trying to code. I looked at example code from lectures as well as online resources like GeeksforGeeks for more information in order to grasp what exactly the two were and how I might utilzie them in my code. 
