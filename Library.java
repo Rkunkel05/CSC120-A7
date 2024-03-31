@@ -3,7 +3,7 @@
 * Description: Creates a Library utilizing the parent class Building. Contains a name, address, number of floors,
 as well as a hashtable containing books and their check-out status. 
      * Author: Rachel Kunkel
-      *  Date: 10 March 2024  
+      *  Date: 31 March 2024  
 */
 
 import java.util.Hashtable;
@@ -28,7 +28,7 @@ public class Library extends Building {
     }
 
     /** Adds a book to the collection
-     @param String name is the title of the book
+     @param String title is the title of the book
      @param boolean is the check-out status of the book
   */
     public void addTitle(String title, Boolean status) {
@@ -36,7 +36,7 @@ public class Library extends Building {
     }
 
     /** Checks to see if the title is in the collection and removes it. Otherwise throws error
-     @param String name is the title of the book
+     @param String title is the title of the book
   */
     public String removeTitle(String title) { 
       System.out.println("Removing title from collection...");
@@ -47,12 +47,26 @@ public class Library extends Building {
         throw new RuntimeException(title + "does not exist!");
       } }
 
-      public void removeTitle(String title, String title2) {
+      /** Takes in multiple titles and checks to see if they are in the collection and removes them. 
+       * Otherwise throws error
+     @param String title is the title of the first book
+     @param String title2 is the title of the second book
+     @param String title3 is the title of the third book
+    */
+      public void removeTitle(String title, String title2, String title3) {
         System.out.println("Removing titles from collection...");
         if (collection.containsKey(title)) {
           collection.remove(title);
-        } else if(collection.containsKey(title2)) {
+        } else {
+            throw new RuntimeException("One or more of these books is not in the collection!");
+          }
+         if(collection.containsKey(title2)) {
           collection.remove(title2);
+        } else {
+          throw new RuntimeException("One or more of these books is not in the collection!");
+        }
+        if(collection.containsKey(title3)) {
+          collection.remove(title3);
         } else {
           throw new RuntimeException("One or more of these books is not in the collection!");
         }
@@ -111,7 +125,7 @@ public class Library extends Building {
      */
     public void showOptions() {
       super.showOptions();
-      System.out.println(" + addTitle(s)\n + removeTitle(s)\n + checkOut(s)\n + returnBook(s)\n + containsTitle(s)\n + isAvailable(s).");
+      System.out.println(" + addTitle(s)\n + removeTitle(s)\n + removeTitle(s,s,s)\n + checkOut(s)\n + returnBook(s)\n + containsTitle(s)\n + isAvailable(s) + printCollection()\n + printCollection(s)\n + hasElevator()\n + goToFloor(n).");
   }
 
   /**
@@ -182,28 +196,37 @@ public class Library extends Building {
       Neilson.addTitle("Dune by Frank Herbert", true);
       Neilson.addTitle("Dune Messiah by Frank Herbert", true);
       Neilson.addTitle("La Galatea by Miguel de Cervantes", true);
+      Neilson.addTitle("Fahrenheit 451 by Ray Bradburys", true);
       // Print collection
+      System.out.println("\n");
       Neilson.printCollection();
       // Check if books are in collection & their availability 
+      System.out.println("\n");
       System.out.println("Animal Farm is in the collection: " + Neilson.containsTitle("Animal Farm by George Orwell"));
       System.out.println("Don Quixote is available to check out: " + Neilson.isAvailable("Don Quixote by Miguel de Cervantes"));
       // Checking out a book
+      System.out.println("\n");
       Neilson.checkOut("Don Quixote by Miguel de Cervantes");
       System.out.println("Don Quixote is available to check out: " + Neilson.isAvailable("Don Quixote by Miguel de Cervantes"));
       Neilson.printCollection();
       // Returning a book
+      System.out.println("\n");
       Neilson.returnBook("Don Quixote by Miguel de Cervantes");
       // Print collection
       Neilson.printCollection();
       // Print books by a certain author
+      System.out.println("\n");
       Neilson.printCollection("Frank Herbert");
       // Removing a book from the collection
+      System.out.println("\n");
       Neilson.removeTitle("Dune by Frank Herbert");
       Neilson.printCollection();
       // Removing an author from the collection
-      Neilson.removeTitle("Animal Farm", "La Galatea");
+      System.out.println("\n");
+      Neilson.removeTitle("Animal Farm by George Orwell", "La Galatea by Miguel de Cervantes", "Dune Messiah by Frank Herbert");
       Neilson.printCollection();
       // Entering, exiting, elevator...
+      System.out.println("\n");
       Neilson.enter();
       Neilson.goToFloor(3);
       Neilson.goUp();

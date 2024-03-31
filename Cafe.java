@@ -4,7 +4,7 @@
 as well as the number of coffee ounces, sugar packets, cups, and creams. Reduces this amount when coffee is 
 made and restocks/resets numbers if it is too low to make coffee.
      * Author: Rachel Kunkel
-      *  Date: 10 March 2024  
+      *  Date: 31 March 2024  
 */
 public class Cafe extends Building {
     /**
@@ -55,7 +55,6 @@ public class Cafe extends Building {
       the restock method.
       @param int nCoffeeOunces is an int with the number of coffee ounces in the cafe
       @param int nSugarPackets is an int with the number of sugar packets in the cafe
-      @param int nCups is an int with the number of cups in the cafe
       @param int nCreams is an int with the number of 'splashes' of coffee in the cafe
     **/
     public void sellCoffee(int size, int nSugarPackets, int nCreams) {
@@ -71,6 +70,12 @@ public class Cafe extends Building {
         }
     }
 
+    /**
+      "Makes" a coffee with a preset number of creams by subtracting the amount requested from stock. If there is not enough, it calls on
+      the restock method.
+      @param int nCoffeeOunces is an int with the number of coffee ounces in the cafe
+      @param int nSugarPackets is an int with the number of sugar packets in the cafe
+    **/
     public void sellCoffee(int size, int nSugarPackets) {
       if (size <= nCoffeeOunces && nSugarPackets <= this.nSugarPackets && nCreams <= this.nCreams) {
         System.out.println("Selling coffee with standard number of splashes of cream...");
@@ -84,6 +89,11 @@ public class Cafe extends Building {
     }
     }
 
+    /**
+      "Makes" a coffee with a preset number of creams and sugar packets by subtracting the amount requested from stock. If there is not enough, it calls on
+      the restock method.
+      @param int nCoffeeOunces is an int with the number of coffee ounces in the cafe
+    **/
     public void sellCoffee(int size) {
       if (size <= nCoffeeOunces && nSugarPackets <= this.nSugarPackets && nCreams <= this.nCreams) {
       System.out.println("Selling coffee with standard number of sugar packets and splashes of cream...");
@@ -96,15 +106,26 @@ public class Cafe extends Building {
     }
     }
 
+    /**
+     * Shows all actions available for the given building. 
+     */
     public void showOptions() {
       super.showOptions();
-      System.out.println(" + restock(n)\n + sellCoffee(n)");
+      System.out.println(" + restock(n)\n + sellCoffee(n,n,n)\n + sellCoffe(n,n)\n + sellfCoffe(n)\n + hasElevator()\n + goToFloor(n)");
   }
 
+  /**
+   * Checks whether or not the building has an elevator
+   * @return boolean hasElevator
+   */
   public boolean hasElevator() {
     return hasElevator;
 }
 
+  /**
+   * "Teleports" the user to the specified floor if the building has an elevator. Otherwise throws error
+   * @param int floorNum floor that the user wishses to go to
+   */
   public void goToFloor(int floorNum) {
     hasElevator = hasElevator();
     if (hasElevator = true) {
@@ -118,28 +139,33 @@ public class Cafe extends Building {
         Cafe Woodstar = new Cafe("Woodstar Cafe", "60 Masonic St", 1, 20, 50, 25, 15, false);
         System.out.println(Woodstar);
         Woodstar.showOptions();
+        System.out.println("\n");
         // Printing the stock
         System.out.println("-----------");
         System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
         System.out.println("-----------");
+        System.out.println("\n");
         // Sell coffee
         Woodstar.sellCoffee(6, 3, 4);
         System.out.println("-----------");
         System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
         System.out.println("Wood star has " + Woodstar.nCups + " cups of coffee.");
         System.out.println("-----------");
-        // Trying to sell too much coffee -> Restock
+        System.out.println("\n");
+        // Selling coffee with two parameters
         Woodstar.sellCoffee(2, 1);
         System.out.println("-----------");
         System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
         System.out.println("-----------");
+        System.out.println("\n");
+        // Selling coffe with 1 parameter
         Woodstar.sellCoffee(2);
         System.out.println("-----------");
         System.out.println("Wood star has " + Woodstar.nCoffeeOunces + " ounces of coffee, " + Woodstar.nSugarPackets + " packets of sugar, " + Woodstar.nCreams + " 'splashes' of cream, " + "and " + Woodstar.nCups + " cups of coffee.");
         System.out.println("-----------");
+        System.out.println("\n");
         // Entering, exiting, elevator...
         Woodstar.enter();
-        Woodstar.goToFloor(3);
         Woodstar.exit();
     }
 }

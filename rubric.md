@@ -24,15 +24,15 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 ### Level 2: Method `Overloads` (3 pts)
 
-**PART** 1 pt: The `House` class includes at least 2 overloaded methods
+**YES** 1 pt: The `House` class includes at least 2 overloaded methods
 
-_____ 1 pt: The `Library` class includes at least 2 overloaded methods
+**YES** 1 pt: The `Library` class includes at least 2 overloaded methods
 
-**PART** 1 pt: The `Cafe` class includes at least 2 overloaded methods
+**YES** 1 pt: The `Cafe` class includes at least 2 overloaded methods
 
 ### Level 3: `CampusMap.java` (2 pts)
 
-_____ 1 pt: The `main(...)` method in `CampusMap.java` has been modified to include at least 10 `Building`s (or `Building` subclasses)
+**YES** 1 pt: The `main(...)` method in `CampusMap.java` has been modified to include at least 10 `Building`s (or `Building` subclasses)
 
 _____ 1 pt: The `CampusMap` includes at least one instance of each class: a `House`, a `Library`, a `Cafe`, and a `Building` (demonstrating that each constructor works as expected)
 
@@ -40,11 +40,11 @@ _____ 1 pt: The `CampusMap` includes at least one instance of each class: a `Hou
 
 ## General Items:
 
-_____ 4 pts: Programs compile without errors or warnings
+**YES** 4 pts: Programs compile without errors or warnings
 
-_____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
+**YES** 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+**YES** 2 pt: Complies with style guidelines (missing items 1 pt each):
 
       _____ Classes & class members all have Javadoc header comments
 
@@ -56,6 +56,6 @@ _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
       _____ Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission (including completed `rubric.md` file)
+**YES** 1 pt: All required files included with submission (including completed `rubric.md` file)
 
-_____ 1 pt: `reflection.md` contains your reflection on the assignment
+**YES** 1 pt: `reflection.md` contains your reflection on the assignment

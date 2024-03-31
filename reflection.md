@@ -1,15 +1,11 @@
 Use this file to record your reflection on this assignment.
 
 - Which methods did you decide to `overload`, and why?
-* sellCoffee method in the cafe: Conceptually made the most sense to me. I understand the point of having an overloaded function in case someone only specifies a the size of the coffee they want, and then the cafe using a generic, preset amount. 
+In the cafe, I decided to overload the sellCoffee method. Conceptually, this made the most sense to me. I thought of it from the perspective of having different "recipes" to make coffee with, and thought about how sometimes someone might specify every single detail of their coffee, resulting in the cafe needing to use its default, preset amount. 
 
-* moveOut in the house method: Again like the sellCoffee method I was thinking in real-life situations. In the case of Summer break, most, if not all people, move out of their house, so it would make sense to remove all residents in bulk instead of specifying them one by one. 
-* moveIn in the house method: I was unsure what else I could overload in this, and thought that if no one is specified, the house could have a ghost move in! 👻
+In the house, I overloaded the moveOut, moveIn, and House methods. The moveIn method was mainly to help me with feeling comfortable with writing methods that have the same names. The moveOut method I thought of in a similar manner to the sellCoffee method. In a real-life situation, such a Summer break, most if not all people move out of their house, so it would make sense to move all residents in bulk instead of specifying them one by one. Finally, when you Google a Smith house's address, nothing pops up other than the default information about Smith's location. I thought it might be interesting to incorporate a default address option. 
 
-* printCollection in the library method: Especially in a larger library you might not want to see all of the books its collection has and instead specify it to only books by a certain author. 
-* trying to make a larger removeTitle method </3
-
+For the library, I overloaded the printCollection and removeTitle methods. Especially in a larger library a user might not want to see all of the books its collection has and instead specify it to only books by a certain author. The overloaded removeTitle method provides greater efficiency. It is much easier to be able to mass remove a group of books instead of doing it one by one. 
 
 - What worked, what didn't, what advice would you give someone taking this course in the future?
-* Same as usual, breaking things down, writing out ideas first, reading through the whole README before coding 
-* I found the idea of overriding and overloading to be a little confusing to understand and also to implement at first, so I found it useful to first search for more information to get a better understanding before trying to code. I looked at example code from lectures as well as online resources like GeeksforGeeks for more information in order to grasp what exactly the two were and how I might utilzie them in my code. 
+As with the previous assignments, breaking things down and reading through the entire README before starting to code was very useful. Writing out my ideas first in English and real-world ideas also helped make sense of some of the new concepts, like overloading methods. Especially with the new concepts, I found it useful to search for more information on them before starting to code. I looked at example code from lectures as well as online resources like GeeksforGeeks and the JavaDocs in order to gain a better understanding of what exactly I was trying to implement. 

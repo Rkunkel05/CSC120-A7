@@ -3,7 +3,7 @@
 * Description: Creates a House utilizing the parent class Building. Contains a name, address, number of floors,
 as well as booleans for whether or not the building has a dining room or an elevator.
      * Author: Rachel Kunkel
-      *  Date: 10 March 2024  
+      *  Date: 31 March 2024  
 */
 
 import java.util.ArrayList;
@@ -18,6 +18,7 @@ public class House extends Building {
       "Builds" a house
       @param String name is a String of the name of the house
       @param String address is String of the address of the house
+      @param int number of floors the house has
       @param boolean is whether or not the house has a dining room
       @param boolean is whether or not the house has an elevator
     **/
@@ -28,6 +29,21 @@ public class House extends Building {
     this.residents = new ArrayList<String>();
     System.out.println("You have built a house: 🏠");
   } 
+
+  /**
+      "Builds" a house
+      @param String name is a String of the name of the house
+      @param int number of floors the house has
+      @param boolean is whether or not the house has a dining room
+      @param boolean is whether or not the house has an elevator
+    **/
+  public House(String name, int floors, boolean hasDiningRoom, boolean hasElevator) {
+    super(name, "Northampton MA, 01063", floors);
+    this.hasElevator = hasElevator;
+    this.hasDiningRoom = hasDiningRoom;
+    this.residents = new ArrayList<String>();
+    System.out.println("You have built a house: 🏠");
+  }
 
   /** Checks if the house has a dining room
   // @return boolean that confirms whether or not the house has a dining room
@@ -100,11 +116,18 @@ public class House extends Building {
     return residents.contains(person);
   }
 
+  /**
+   * Displays all available actions for the given building 
+   */
   public void showOptions() {
     super.showOptions();
-    System.out.println(" + hasDiningRoom()\n + nResidents()\n + moveIn(s)\n + moveOut(s)\n + isResident(s)");
+    System.out.println(" + House(s,s,n,b,b)\n + House (s,n,b,b)\n + hasDiningRoom()\n + nResidents()\n + moveIn(s)\n + moveIn(s)\n + moveOut(s)\n + moveOut()\n + isResident(s)\n + hasElevator()\n + goToFloor(n)");
 }
 
+/**
+ * "Teleports" the user to the specified floor if the building has an elevator. Otherwise throws error
+   @param int floorNum floor that the user wishses to go to
+ */
   public void goToFloor(int floorNum) {
     hasElevator = hasElevator();
     if (hasElevator = true) {
@@ -114,11 +137,17 @@ public class House extends Building {
       throw new RuntimeException(this.name + " does not have an elevator! You must take the stairs."); }
   }
   public static void main(String[] args) {
+    // Create a house w/out address specified
+    House Chase = new House("Chase House", 3, true, true);
+    System.out.println(Chase);
+    System.out.println("\n");
+
+    // Create a house with all parameters
     House Lamont = new House("Lamont House", "17 Prospect St.", 5, true, true);
     System.out.println(Lamont);
     Lamont.showOptions();
 
-    // Showing info about house
+    // Showing info about house with all parameters
     System.out.println("\n" + Lamont.name + " has a dining room: "  + Lamont.hasDiningRoom());
     System.out.println(Lamont.name + " has an elevator: " + Lamont.hasElevator());
 
@@ -148,6 +177,7 @@ public class House extends Building {
     System.out.println("\n");
     Lamont.moveOut();
     System.out.println(Lamont.name + " has: " + Lamont.nResidents() + " resident(s).");
+    
   }
 
 }
