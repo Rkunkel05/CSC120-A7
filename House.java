@@ -31,7 +31,7 @@ public class House extends Building {
   } 
 
   /**
-      "Builds" a house
+      "Builds" a house with a default address
       @param String name is a String of the name of the house
       @param int number of floors the house has
       @param boolean is whether or not the house has a dining room
@@ -78,7 +78,7 @@ public class House extends Building {
     }
   }
 
-  /** If no name is specified, moves the house council staff into the house. Throws error if they already live there. 
+  /** If no name is specified, moves a ghost into the house. Throws error if a ghost already lives there. 
    */
   public void moveIn() {
     if (!residents.contains("House Ghost 👻")) {

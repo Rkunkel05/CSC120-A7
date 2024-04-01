@@ -51,9 +51,9 @@ public class CampusMap {
         myMap.addBuilding(new Building("Burton Hall", "46 College Ln, Northampton, MA 01063", 4));
         myMap.addBuilding(new Building("Botanic Garden", "16 College Ln, Northampton, MA 01063", 1));
         myMap.addBuilding(new Building("Wright Hall", "5 Chapin Way, Northampton, MA 01063", 3));
-        myMap.addBuilding(new Building("Alumnae Gym", "83 Green St, Northampton, MA 01063", 3));
-        myMap.addBuilding(new Building("Ainsworth Gym", "102 Lower College Ln, Northampton, MA 01060", 4));
-        myMap.addBuilding(new Building("Indoor Track and Tennis Facility", "106 Lower College Ln, Northampton, MA 01063", 1));
+        myMap.addBuilding(new Cafe("Woodstar Cafe", "60 Masonic St, Northampton, MA 01060", 1, 20, 50, 25, 15, false));
+        myMap.addBuilding(new Library("Neilson Library", "7 Neilson Drive, Northampton, MA 01063", 4, true));
+        myMap.addBuilding(new House("Lamont House", "17 Prospect St., Northampton, MA 01063", 4, true, true));
 
         System.out.println(myMap);
     }
