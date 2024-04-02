@@ -80,7 +80,26 @@ public class Library extends Building {
       if (collection.containsKey(title) && collection.get(title)) {
         collection.put(title, false);
       } else {
-        throw new RuntimeException(title + "is already checked out!");
+        throw new RuntimeException(title + " is already checked out!");
+      }
+    }
+
+    public void checkOut(String title, String title2, String title3) {
+      System.out.println("Checking out books...");
+      if (collection.containsKey(title) && collection.get(title)) {
+        collection.put(title,false);
+      } else {
+        throw new RuntimeException(title + " is already checked out!");
+      }
+      if (collection.containsKey(title2) && collection.get(title2)) {
+        collection.put(title2,false);
+      } else {
+        throw new RuntimeException(title2 + " is already checked out!");  
+      }
+      if (collection.containsKey(title3) && collection.get(title3)) {
+        collection.put(title3,false);
+      } else {
+        throw new RuntimeException(title3 + " is already checked out!");
       }
     }
 
@@ -208,6 +227,10 @@ public class Library extends Building {
       System.out.println("\n");
       Neilson.checkOut("Don Quixote by Miguel de Cervantes");
       System.out.println("Don Quixote is available to check out: " + Neilson.isAvailable("Don Quixote by Miguel de Cervantes"));
+      Neilson.printCollection();
+      // Checking out multiple books
+      System.out.println("\n");
+      Neilson.checkOut("Animal Farm by George Orwell", "Fahrenheit 451 by Ray Bradburys","La Galatea by Miguel de Cervantes");
       Neilson.printCollection();
       // Returning a book
       System.out.println("\n");

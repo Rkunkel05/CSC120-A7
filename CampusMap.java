@@ -56,6 +56,10 @@ public class CampusMap {
         myMap.addBuilding(new House("Lamont House", "17 Prospect St., Northampton, MA 01063", 4, true, true));
 
         System.out.println(myMap);
+        boolean loop = true;
+        while (loop) {
+            // input for what user wants to do, certain thing can be input to cancel loop/exit, etc...
+        }
     }
     
 }
