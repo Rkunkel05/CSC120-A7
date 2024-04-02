@@ -77,17 +77,8 @@ public class Cafe extends Building {
       @param int nSugarPackets is an int with the number of sugar packets in the cafe
     **/
     public void sellCoffee(int size, int nSugarPackets) {
-      if (size <= nCoffeeOunces && nSugarPackets <= this.nSugarPackets && nCreams <= this.nCreams) {
-        System.out.println("Selling coffee with standard number of splashes of cream...");
-        this.nCoffeeOunces -= size;
-        this.nSugarPackets -= nSugarPackets;
-        this.nCreams -= 4;
+      sellCoffee(size, nSugarPackets, 4);
       }
-      else {
-        System.out.println("Not enough in stock... \nRestocking...");
-        restock(20,50,25,15);
-    }
-    }
 
     /**
       "Makes" a coffee with a preset number of creams and sugar packets by subtracting the amount requested from stock. If there is not enough, it calls on
@@ -95,16 +86,8 @@ public class Cafe extends Building {
       @param int nCoffeeOunces is an int with the number of coffee ounces in the cafe
     **/
     public void sellCoffee(int size) {
-      if (size <= nCoffeeOunces && nSugarPackets <= this.nSugarPackets && nCreams <= this.nCreams) {
-      System.out.println("Selling coffee with standard number of sugar packets and splashes of cream...");
-      this.nCoffeeOunces -= size;
-      this.nSugarPackets -= 2;
-      this.nCreams -= 4;
-      } else {
-        System.out.println("Not enough in stock... \nRestocking...");
-        restock(20,50,25,15);
-    }
-    }
+      sellCoffee(size, 2, 4);
+      }
 
     /**
      * Shows all actions available for the given building. 

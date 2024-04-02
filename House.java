@@ -38,11 +38,7 @@ public class House extends Building {
       @param boolean is whether or not the house has an elevator
     **/
   public House(String name, int floors, boolean hasDiningRoom, boolean hasElevator) {
-    super(name, "Northampton MA, 01063", floors);
-    this.hasElevator = hasElevator;
-    this.hasDiningRoom = hasDiningRoom;
-    this.residents = new ArrayList<String>();
-    System.out.println("You have built a house: 🏠");
+    House(name, "Northampton MA, 01063", floors, hasDiningRoom, hasElevator);
   }
 
   /** Checks if the house has a dining room
