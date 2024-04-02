@@ -38,7 +38,7 @@ public class House extends Building {
       @param boolean is whether or not the house has an elevator
     **/
   public House(String name, int floors, boolean hasDiningRoom, boolean hasElevator) {
-    House(name, "Northampton MA, 01063", floors, hasDiningRoom, hasElevator);
+    this(name, "Northampton MA, 01063", floors, hasDiningRoom, hasElevator);
   }
 
   /** Checks if the house has a dining room
